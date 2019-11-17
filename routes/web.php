@@ -19,6 +19,9 @@ Route::get('/get/cart', 'MasterController@getCart');
 Route::post('/new/cart', 'MasterController@saveCart');
 Route::get('/delete/cart/{id}', 'MasterController@deleteCart');
 Route::get('/', 'HomeController@index')->name('home');
+//Route::get('/home', function(){
+////    return view('welcome');
+////});
 //Ruang
 Route::get('/master/ruang', 'MasterController@ruang');
 Route::get('/new/ruang', function(){

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Login &mdash; Peminjaman Ruang</title>
+  <title>Login &mdash; My Rooms</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">

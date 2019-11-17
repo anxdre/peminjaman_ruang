@@ -19,7 +19,7 @@
 		@if(Auth::user()->priv_admin == "user")
 		<nav class="navbar navbar-expand-lg main-navbar">
         <form class="form-inline mr-auto">
-          
+
         </form>
         <ul class="navbar-nav navbar-right">
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
@@ -48,7 +48,7 @@
 				<div class="row">
 					<div class="col-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
 						<div class="login-brand">
-							PEMINJAMAN RUANG
+							My Rooms
 						</div>
 						@if (session('error'))
 						<div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -167,7 +167,7 @@
 											<div class="wizard-pane wiz-2" style="display: none">
 												<form method="POST" id="form-cart" action="{{url('/new/cart')}}">
 													@csrf
-													
+
 													<div class="form-group">
 														<label>Fasilitas</label>
 														<select id="fasil" class="form-control select2" name="fasil">
@@ -202,7 +202,7 @@
 											</div>
 											<div class="wizard-pane wiz-3" style="display: none">
 												<div class="invoice-print">
-													
+
 													<div class="row">
 													  <div class="col-lg-12">
 													    <hr>
@@ -224,12 +224,12 @@
 													        </address>
 													      </div>
 													      <div class="col-md-6 text-md-right">
-													        
+
 													      </div>
 													    </div>
 													  </div>
 													</div>
-													
+
 													<div class="row mt-4">
 													  <div class="col-md-12">
 													    <div class="section-title">Order Summary</div>
@@ -255,11 +255,11 @@
 													      </tbody></table>
 													    </div>
 													    <div class="row mt-4">
-													      
+
 													      <div class="col-lg-8">
-													        
-													        
-													        
+
+
+
 													      </div><div class="col-lg-4 text-right">
 													        <hr class="mt-2 mb-2">
 													        <div class="invoice-detail-item">
@@ -270,7 +270,7 @@
 													    </div>
 													  </div>
 													</div>
-													
+
 												</div>
 												<hr>
 												<div class="form-group row">
@@ -363,7 +363,7 @@
 	  			$('#wiz-tab-2').addClass('wizard-step-active');//tab function jangan dirubah
 	  		});
 	  		$('#btn-next-final').click(function(event) {
-	  			$('#total').val(grandTotal);	
+	  			$('#total').val(grandTotal);
 	  			$('#form-trans').submit();
 	  		});
 	  		$('#form-cart').submit(function(event) {
@@ -404,7 +404,7 @@
 										          '<td class="text-center">'+data[i].jumlah+'</td>'+
 										          '<td class="text-right">'+data[i].fasil.harga*data[i].jumlah+'</td>'+
 										        '</tr>';
-							
+
 	  					}
 	  					$('#tbody-cart').html(content);
 	  					$('#tbody-invoice').html(contentInvoice);
@@ -425,7 +425,7 @@
 	  		}
 	  		// $('table tr').each(function(){
 	  		// 	if ($(this).find('td').eq(2).html() != null) {
-	  		// 		total += parseInt($(this).find('td').eq(2).html());	
+	  		// 		total += parseInt($(this).find('td').eq(2).html());
 	  		// 	}
 	  		// });
 
@@ -454,7 +454,7 @@
 	  		});
 	  	});
 	  	//sampek sini jangan disentuh :)
-	  	
+
 	  </script>
 	</body>
 	</html>

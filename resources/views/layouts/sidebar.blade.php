@@ -1,7 +1,7 @@
 <div class="main-sidebar">
   <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
-      <a href="/">Peminjaman Ruang</a>
+      <a href="/">My Rooms</a>
     </div>
     <div class="sidebar-brand sidebar-brand-sm">
       <a href="/">PR</a>
