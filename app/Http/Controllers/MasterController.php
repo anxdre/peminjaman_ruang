@@ -2,17 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Auth;
-
-use App\Ruang;
-use App\Fasilitas;
-use App\Transaksi;
-use App\Fasilitastransaksi;
 use App\Cart;
-use App\User;
-
+use App\Fasilitas;
+use App\Fasilitastransaksi;
 use App\Mail\TransaksiMail;
+use App\Ruang;
+use App\Transaksi;
+use Auth;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
 class MasterController extends Controller
@@ -84,7 +81,7 @@ class MasterController extends Controller
                 $request->file('gambar')->move("image/ruang/", $fileName);
                 $ruang->gambar = $fileName;
             }
-            
+
             $ruang->name = $request->nama;
             $ruang->harga = $request->harga;
             $ruang->desc = $request->desc;
@@ -101,10 +98,16 @@ class MasterController extends Controller
         } else {
             $this->validate($request, [
                 'nama' => 'required',
+                'ukuran' => 'required',
+                'kapasitas' => 'required',
+                'warna' => 'required',
                 'harga' => 'required',
                 'desc' => 'required'
             ], [
                 'nama.required' => 'Nama tidak boleh kosong',
+                'ukuran.required' => 'Ukuran tidak boleh kosong',
+                'kapasitas.required' => 'Kapasitas tidak boleh kosong',
+                'warna.required' => 'Warna tidak boleh kosong',
                 'harga.required' => 'Harga tidak boleh kosong',
                 'desc.required' => 'Deskripsi tidak boleh kosong'
             ]);
@@ -115,6 +118,9 @@ class MasterController extends Controller
             $request->file('gambar')->move("image/ruang/", $fileName);
 
             $ruang->name = $request->nama;
+            $ruang->ukuran = $request->ukuran;
+            $ruang->kapasitas = $request->kapasitas;
+            $ruang->warna = $request->warna;
             $ruang->harga = $request->harga;
             $ruang->desc = $request->desc;
             $ruang->gambar = $fileName;
@@ -319,7 +325,7 @@ class MasterController extends Controller
         $transaksi = Transaksi::find($id);
         $transaksi->status = "ACCEPTED";
         $transaksi->save();
-//        $this->mailInvo($id);
+        $this->mailInvo($id);
         return redirect('/master/transaksi');
     }
 
@@ -328,13 +334,13 @@ class MasterController extends Controller
         $transaksi = Transaksi::find($id);
         $transaksi->status = "REJECTED";
         $transaksi->save();
-//        $this->mailInvo($id);
+        $this->mailInvo($id);
         return redirect('/master/transaksi');
     }
 
     function mailInvo($id)
     {
         $transaksi = Transaksi::find($id);
-        Mail::to($transaksi->user->email)->send(new TransaksiMail(5));
+        Mail::to($transaksi->user->email)->send(new TransaksiMail($id));
     }
 }

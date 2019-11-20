@@ -26,6 +26,35 @@
 								{{-- </div> --}}
 								@enderror
 							</div>
+                            <div class="form-group">
+                                <label>Kapasitas</label>
+                                <input type="number" name="kapasitas" placeholder="Kapasitas Ruang" class="form-control" min="1">
+                                @error('kapasitas')
+                                {{-- <div class="invalid-feedback"> --}}
+                                <div style="color:red">{{ $message }}</div>
+                                {{-- </div> --}}
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label>Ukuran</label>
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="Panjang">
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="Lebar">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Warna</label>
+                                <input type="text" name="warna" placeholder="Warna Ruang" class="form-control">
+                                @error('warna')
+                                {{-- <div class="invalid-feedback"> --}}
+                                <div style="color:red">{{ $message }}</div>
+                                {{-- </div> --}}
+                                @enderror
+                            </div>
 							<div class="form-group">
 								<label>Harga</label>
 								<input type="number" name="harga" placeholder="Harga per Jam" class="form-control" min="1">
